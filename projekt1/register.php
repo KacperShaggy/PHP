@@ -26,7 +26,7 @@
 
          //verifying the unique email
 
-         $verify_query = mysqli_query($con,"SELECT email FROM klienci WHERE email='$email'");
+         $verify_query = mysqli_query($con,"SELECT email FROM klient WHERE email='$email'");
 
          if(mysqli_num_rows($verify_query) !=0 ){
             echo "<div class='message'>
@@ -36,7 +36,7 @@
          }
          else{
 
-            mysqli_query($con,"INSERT INTO klienci VALUES(NULL, '$imie','$nazwisko','$kod_pocztowy','$pesel','$telefon','$email','$haslo', '$adres')") or die("Erroe Occured");
+            mysqli_query($con,"INSERT INTO klient VALUES(NULL, '$nazwisko','$imie','$kod_pocztowy','$pesel','$telefon','$email','$adres', '$haslo')") or die("Erroe Occured");
 
             echo "<div class='message'>
                       <p>Zarejetrsowano pomyślnie!</p>

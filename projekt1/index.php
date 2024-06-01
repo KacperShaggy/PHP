@@ -21,10 +21,11 @@
                 $email = mysqli_real_escape_string($con,$_POST['email']);
                 $haslo = mysqli_real_escape_string($con,$_POST['haslo']);
 
-                $result = mysqli_query($con,"SELECT * FROM klienci WHERE email='$email' AND haslo='$haslo' ") or die("Select Error");
+                $result = mysqli_query($con,"SELECT * FROM klient WHERE email='$email' AND haslo='$haslo' ") or die("Select Error");
                 $row = mysqli_fetch_assoc($result);
 
                 if(is_array($row) && !empty($row)){
+                    $_SESSION['Id_klienta'] = $row['id'];
                     $_SESSION['valid'] = $row['email'];
                     $_SESSION['imie'] = $row['imie'];
                     $_SESSION['nazwisko'] = $row['nazwisko'];
@@ -56,7 +57,7 @@
 
                 <div class="field input">
                     <label for="password">Hasło</label>
-                    <input type="password" name="password" id="password" autocomplete="off" required>
+                    <input type="password" name="haslo" id="password" autocomplete="off" required>
                 </div>
 
                 <div class="field">

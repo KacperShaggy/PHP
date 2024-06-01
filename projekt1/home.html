@@ -1,0 +1,78 @@
+<?php 
+   session_start();
+
+   include("php/config.php");
+   if(!isset($_SESSION['valid'])){
+    header("Location: index.php");
+   }
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Home</title>
+</head>
+<body>
+    <div class="nav">
+        <div class="search">
+            Wyszukaj: <input type="text">
+        </div>
+        <div class="logo">
+            <p><a href="home.php">Ksiegarnia</a> </p>
+        </div>
+        <div class="koszyk">
+            <img src="style/koszyk.png" alt="" onclick="Show()">
+        </div>
+    </div>
+    <main>
+        <div class="books" id="books">
+            <div class="book1">Harry potter
+                <img src="style/harry potter.jpg" alt=""><br>
+                Cena: 49.99 zl
+                <button onclick="addHarry()">
+                    Kup
+                </button>
+            </div>
+            <div class="book2">W pustyni i w puszczy
+                <img src="style/pustynia.jpg" alt=""><br>
+                Cena: 59.99 zl
+                <button onclick="addPuszcza()">
+                    Kup
+                </button>
+            </div>
+            <div class="book3">Ogniem i mieczem
+                <img src="style/ogniem.jpg" alt=""><br>
+                Cena: 29.99 zl
+                <button onclick="addOgniem()">
+                    Kup
+                </button>
+
+            </div>
+        </div>
+    </main>
+
+
+    <script>
+        var koszyk = [];
+        var books = document.getElementById('books');
+
+        function addHarry() {
+            koszyk += 'Harry Potter ';
+        }
+
+        function addPuszcza() {
+            koszyk += 'W pustyni i w puszczy ';
+        }
+
+        function addOgniem() {
+            koszyk += 'Ogniem i mieczem ';
+        }
+
+
+
+    </script>
+</body>
+</html>
